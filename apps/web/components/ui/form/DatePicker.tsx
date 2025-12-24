@@ -15,6 +15,14 @@ type Props = {
 };
 
 export const DatePicker = ({ minDate, disabled, date, onDatesChange, className }: Props) => {
+  const[calendarContainer]= useState(() => document.createElement("div"));
+
+  React.useEffect(() => {
+    document.body.appendChild(calendarContainer);
+    return () => {
+      document.body.removeChild(calendarContainer);
+    };
+  }, [calendarContainer]);
   return (
     <PrimitiveDatePicker
       className={classNames(
@@ -27,6 +35,8 @@ export const DatePicker = ({ minDate, disabled, date, onDatesChange, className }
       minDate={minDate}
       disabled={disabled}
       onChange={onDatesChange}
+      calendarContainer={(props) => ReactDOM.createPortal(<div {...props} />, calendarContainer)}
+      calendarClassName="z-50"
     />
   );
 };
