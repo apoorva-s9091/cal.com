@@ -422,3 +422,10 @@ html[dir="rtl"] .react-tel-input .flag-dropdown {
   left: auto !important;
   right: 0 !important;
 }
+.react-date-picker__calendar{
+  z-index:9999
+}
+.signup-form-container{
+  overflow:visible;
+  position:relative;
+}
