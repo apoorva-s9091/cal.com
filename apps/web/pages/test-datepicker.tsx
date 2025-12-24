@@ -6,6 +6,7 @@ export default function TestDatePicker() {
 
   return (
     <div style={{ padding: "50px" }}>
+      <h1>Test DatePicker</h1>
       <DatePicker
         date={date}
         onDatesChange={(d) => setDate(d)}
